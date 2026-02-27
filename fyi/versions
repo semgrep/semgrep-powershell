@@ -1,0 +1,43 @@
+File: semgrep-grammars/src/tree-sitter-powershell/LICENSE
+Git repo name: tree-sitter-powershell
+Latest commit in repo: da65ba3acc93777255781b447f5e7448245df4bf
+Last change in file:
+  commit 211956f4a88639bab9c7748bbacc43daa436aaab
+  Author: Sylvain Peyrefitte <citronneur@gmail.com>
+  Date:   Tue Oct 10 14:26:42 2023 +0200
+  
+      Create LICENSE
+---
+File: semgrep-grammars/src/tree-sitter-powershell/grammar.js
+Git repo name: tree-sitter-powershell
+Latest commit in repo: da65ba3acc93777255781b447f5e7448245df4bf
+Last change in file:
+  commit add0665d79f0e488162fefaf0d287b15af042096
+  Author: dolphinau <alexandre.tullot@protonmail.com>
+  Date:   Tue Feb 24 10:11:50 2026 +0100
+  
+      Regenerate bindings
+---
+File: semgrep-grammars/src/semgrep-powershell/grammar.js
+Git repo name: ocaml-tree-sitter-semgrep
+Latest commit in repo: 37ca555d5ec84a06e7d67878811c1f65d26e7d7c
+Last change in file:
+  commit 37ca555d5ec84a06e7d67878811c1f65d26e7d7c
+  Author: brandonspark <wu.brandonj@gmail.com>
+  Date:   Fri Feb 27 14:52:52 2026 -0800
+  
+      feat(lang): Add PowerShell language support
+      
+      Add semgrep pattern support for PowerShell via tree-sitter-powershell
+      (airbus-cert/tree-sitter-powershell). Ellipsis (...) is supported in
+      statements, expressions, and command arguments. Metavariables ($FOO)
+      work naturally since PowerShell's variable syntax already matches
+      the semgrep metavariable pattern.
+      
+      Uses a custom prep script because tree-sitter-powershell is the first
+      upstream grammar in this repo to use ESM ("type": "module", export
+      default). The prep script creates a CJS-compatible copy of the base
+      grammar so our wrapper can load it via require().
+      
+      Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
+---
