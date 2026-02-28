@@ -2,7 +2,7 @@
 (include_subdirs qualified)
 
 (library
-  (public_name tree-sitter-lang.powershell)
+  (public_name tree-sitter-lang-pro.powershell)
   (name tree_sitter_powershell)
   (libraries atdgen-runtime tree-sitter.run)
 
