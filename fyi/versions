@@ -20,13 +20,15 @@ Last change in file:
 ---
 File: semgrep-grammars/src/semgrep-powershell/grammar.js
 Git repo name: ocaml-tree-sitter-semgrep
-Latest commit in repo: 663b5a042c2db1eb9aac5f9e075b847a9d92dfc3
+Latest commit in repo: c869123493a655eeb61c380361f27b036fd71dc1
 Last change in file:
-  commit 37ca555d5ec84a06e7d67878811c1f65d26e7d7c
-  Author: brandonspark <wu.brandonj@gmail.com>
-  Date:   Fri Feb 27 14:52:52 2026 -0800
+  commit c869123493a655eeb61c380361f27b036fd71dc1
+  Author: Brandon Wu <49291449+brandonspark@users.noreply.github.com>
+  Date:   Fri Mar 6 12:01:46 2026 -0800
   
-      feat(lang): Add PowerShell language support
+      feat: add powershell (#568)
+      
+      * feat(lang): Add PowerShell language support
       
       Add semgrep pattern support for PowerShell via tree-sitter-powershell
       (airbus-cert/tree-sitter-powershell). Ellipsis (...) is supported in
@@ -40,4 +42,15 @@ Last change in file:
       grammar so our wrapper can load it via require().
       
       Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
+      
+      * feat: add powershell to pro package in release script
+      
+      PowerShell was missing from the case statement that sets
+      --package tree-sitter-lang-pro for proprietary languages.
+      
+      Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
+      
+      ---------
+      
+      Co-authored-by: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
 ---
