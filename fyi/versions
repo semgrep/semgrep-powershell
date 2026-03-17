@@ -20,24 +20,18 @@ Last change in file:
 ---
 File: semgrep-grammars/src/semgrep-powershell/grammar.js
 Git repo name: ocaml-tree-sitter-semgrep
-Latest commit in repo: 663b5a042c2db1eb9aac5f9e075b847a9d92dfc3
+Latest commit in repo: 8be73a02b60ea49c5d6c4f3978ebadb1a599f51a
 Last change in file:
-  commit 37ca555d5ec84a06e7d67878811c1f65d26e7d7c
+  commit b7efa96c45a6b14887801842254ddb07afaf17af
   Author: brandonspark <wu.brandonj@gmail.com>
-  Date:   Fri Feb 27 14:52:52 2026 -0800
+  Date:   Tue Mar 17 16:08:41 2026 -0700
   
-      feat(lang): Add PowerShell language support
+      fix(powershell): allow semgrep ellipsis in method argument lists
       
-      Add semgrep pattern support for PowerShell via tree-sitter-powershell
-      (airbus-cert/tree-sitter-powershell). Ellipsis (...) is supported in
-      statements, expressions, and command arguments. Metavariables ($FOO)
-      work naturally since PowerShell's variable syntax already matches
-      the semgrep metavariable pattern.
+      Override `argument_expression` in the semgrep-powershell grammar to accept
+      `semgrep_ellipsis`, enabling patterns like `$OBJ.GetMethods(...)`.
       
-      Uses a custom prep script because tree-sitter-powershell is the first
-      upstream grammar in this repo to use ESM ("type": "module", export
-      default). The prep script creates a CJS-compatible copy of the base
-      grammar so our wrapper can load it via require().
+      powershell-obj-getmethods
       
-      Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
+      Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
 ---

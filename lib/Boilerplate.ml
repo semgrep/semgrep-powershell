@@ -1136,7 +1136,14 @@ and map_additive_expression (env : env) (x : CST.additive_expression) =
   )
 
 and map_argument_expression (env : env) (x : CST.argument_expression) =
-  map_logical_argument_expression env x
+  (match x with
+  | `Logi_arg_exp x -> R.Case ("Logi_arg_exp",
+      map_logical_argument_expression env x
+    )
+  | `Semg_ellips tok -> R.Case ("Semg_ellips",
+      (* "..." *) token env tok
+    )
+  )
 
 and map_argument_expression_list (env : env) ((v1, v2) : CST.argument_expression_list) =
   let v1 = map_argument_expression env v1 in
@@ -2120,7 +2127,7 @@ and map_logical_argument_expression (env : env) (x : CST.logical_argument_expres
       map_bitwise_argument_expression env x
     )
   | `Logi_arg_exp_choice_pat__and_bitw_arg_exp (v1, v2, v3) -> R.Case ("Logi_arg_exp_choice_pat__and_bitw_arg_exp",
-      let v1 = map_argument_expression env v1 in
+      let v1 = map_logical_argument_expression env v1 in
       let v2 = map_anon_choice_pat__and_bad5cfe env v2 in
       let v3 = map_bitwise_argument_expression env v3 in
       R.Tuple [v1; v2; v3]

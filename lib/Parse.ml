@@ -572,7 +572,10 @@ let children_regexps : (string * Run.exp option) list = [
   );
   "argument_expression",
   Some (
-    Token (Name "logical_argument_expression");
+    Alt [|
+      Token (Name "logical_argument_expression");
+      Token (Name "semgrep_ellipsis");
+    |];
   );
   "argument_expression_list",
   Some (
@@ -3712,7 +3715,17 @@ and trans_additive_expression ((kind, body) : mt) : CST.additive_expression =
 and trans_argument_expression ((kind, body) : mt) : CST.argument_expression =
   match body with
   | Children v ->
-      trans_logical_argument_expression (Run.matcher_token v)
+      (match v with
+      | Alt (0, v) ->
+          `Logi_arg_exp (
+            trans_logical_argument_expression (Run.matcher_token v)
+          )
+      | Alt (1, v) ->
+          `Semg_ellips (
+            trans_semgrep_ellipsis (Run.matcher_token v)
+          )
+      | _ -> assert false
+      )
   | Leaf _ -> assert false
 
 and trans_argument_expression_list ((kind, body) : mt) : CST.argument_expression_list =

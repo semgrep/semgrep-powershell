@@ -620,7 +620,10 @@ and additive_expression = [
     )
 ]
 
-and argument_expression = logical_argument_expression
+and argument_expression = [
+    `Logi_arg_exp of logical_argument_expression
+  | `Semg_ellips of Token.t (* "..." *)
+]
 
 and argument_expression_list = (
     argument_expression
@@ -1039,7 +1042,7 @@ and literal = [
 and logical_argument_expression = [
     `Bitw_arg_exp of bitwise_argument_expression
   | `Logi_arg_exp_choice_pat__and_bitw_arg_exp of (
-        argument_expression * anon_choice_pat__and_bad5cfe
+        logical_argument_expression * anon_choice_pat__and_bad5cfe
       * bitwise_argument_expression
     )
 ]
